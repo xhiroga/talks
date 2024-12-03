@@ -1,636 +1,238 @@
----
-# You can also start simply with 'default'
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
-# some information about your slides (markdown enabled)
-title: Welcome to Slidev
-info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# apply unocss classes to the current slide
-class: text-center
-# https://sli.dev/features/drawing
-drawings:
-  persist: false
-# slide transition: https://sli.dev/guide/animations.html#slide-transitions
-transition: slide-left
-# enable MDC Syntax: https://sli.dev/features/mdc
-mdc: true
----
-
-# Welcome to Slidev
-
-Presentation slides for developers
-
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
+## LlamaGen: LlamaのNext-Token予測を使った画像生成【論文】 🦙
 
 ---
-transition: fade-out
----
 
-# What is Slidev?
+# はじめに
 
-Slidev is a slides maker and presenter designed for developers, consist of the following features
+近年の画像生成AIは高品質な一方、大規模言語モデルとの統合は限定的。ChatGPTの画像生成はDALL-Eを呼び出すだけ。🤔
 
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
+これはアーキテクチャの違いが原因。拡散モデルは高品質だが計算コストが高い。自己回帰モデルは高速だが、高解像度画像には不向き。
 
-Read more about [Why Slidev?](https://sli.dev/guide/why)
+**LlamaGen** はLLMであるLlamaを自己回帰型画像生成に応用！画像をトークン化し、Llamaで予測生成することで高品質を実現。✨
 
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
-<!--
-Here is another comment.
--->
+将来は、図入り画像の前処理なし学習も可能になるかも？！
 
 ---
-transition: slide-up
-level: 2
----
 
-# Navigation
+# 発表のお知らせ📢
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
-
-## Keyboard Shortcuts
-
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
-
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+この記事の内容を、2024-12-03に行われる[松尾研LLMコミュニティ【Paper & Hacks】#28](https://matsuolab-community.connpass.com/event/338122/) にて発表します！
 
 ---
-layout: two-cols
-layoutClass: gap-16
+
+# ソースコード
+
+LlamaGenはオープンソース！🎉
+動かすのに苦労したので、フォークして`uv`で動くように整えたリポジトリを公開しました。💪
+
+[FoundationVision/LlamaGen](https://github.com/FoundationVision/LlamaGen)
+
+[xhiroga/LlamaGen](https://github.com/xhiroga/LlamaGen/tree/chore/uv)
+
+
 ---
 
-# Table of contents
+# 関連研究
 
-You can use the `Toc` component to generate a table of contents for your slides:
+自己回帰モデルによる画像生成は、拡散モデル以前から存在していました。
 
-```html
-<Toc minDepth="1" maxDepth="1" />
+* **PixelCNN (2016):** マスク畳み込みで自己回帰を実現
+* **ImageGPT (2020):** Transformerを用いた自己回帰型画像生成
+* **ViT (2020):** 画像認識のためのTransformer
+* **DALL-E (2021):** Transformerを用いた画像生成、VAEでトークン化
+* **VQGAN (2021):** ベクトル量子化とTransformerを用いた高解像度画像生成
+* **DiT (2023):** Transformerを用いた拡散モデル
+
+LlamaGenの貢献は、LLMのノウハウを画像生成に適用し、高品質を実現した点！
+
+---
+
+# LlamaGenのアーキテクチャ
+
+2つの主要モジュール:
+
+1. **Image Tokenizer:** 画像をトークン列に変換 (VQGANベース)
+2. **Llama:** トークン列から自己回帰的に画像生成
+
+```mermaid
+graph LR
+    i[画像 🏞️]
+    t[テキスト・クラス 💬]
+    
+    i --> enc[エンコーダー<br/>量子化器]
+    subgraph Image Tokenizer
+    enc --コードブックを参照--> token([グリッドトークン<br/>🟦 🟩 ⬜️ 🟩 ...])
+    token --> dec[デコーダー]
+    end
+
+    t --> llm[Llama 🦙]
+    token --> llm
+    llm --> token
+
+    dec --> o[出力画像 🏞️]
 ```
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+---
 
-::right::
+# LlamaGen vs. ViT
 
-<Toc text-sm minDepth="1" maxDepth="2" />
+どちらもTransformerを使うが、役割は違う！
+
+| 特徴 | LlamaGen | ViT |
+|---|---|---|
+| タスク | 画像生成 | 画像分類 |
+| アーキテクチャ | Transformer Decoder | Transformer Encoder |
+| トークン化対象 | 画像パッチ | 画像パッチ |
+| トークン化方法 | ベクトル量子化 | パッチ埋込み |
+
+
+---
+
+# Image Tokenizer 🔎
+
+高解像度画像をトークン列に変換する重要モジュール。Transformerの計算コストを抑える🔑
+
+* **エンコーダー:** 画像を低次元特徴マップに変換
+* **量子化器:** 特徴マップをコードブックのベクトルに置き換え (トークン化)
+* **デコーダー:** トークン列から画像を再構成
+
+VQGANと同じアーキテクチャを採用。
 
 ---
 layout: image-right
-image: https://cover.sli.dev
+image: https://github.com/CompVis/taming-transformers/blob/master/assets/teaser.png?raw=true
 ---
 
-# Code
+# Image Tokenizer (VQGAN)
 
-Use code snippets and get the highlighting directly, and even types hover!
-
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
-
-import { computed, ref } from 'vue'
-
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
-
-doubled.value = 2
-```
-
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
-
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
-
-<!-- Footer -->
-
-[Learn more](https://sli.dev/features/line-highlighting)
-
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
-<!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
--->
-
----
-level: 2
----
-
-# Shiki Magic Move
-
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
-
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
-
-````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
-```
-
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
-```
-
-```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
-```
-
-Non-code blocks are ignored.
-
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
-```
-````
+VQGANのアーキテクチャ。LlamaGenとほぼ同じで、自己回帰モデルがTransformerかLlamaかの違い。
 
 ---
 
-# Components
 
-<div grid="~ cols-2 gap-4">
-<div>
+# ベクトル量子化
 
-You can use Vue components directly inside your slides.
+連続ベクトル空間を離散コードブックで表現する手法。VQ-VAE等で利用され、高次元データを効率的に圧縮。
 
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
+[分かりやすい記事](https://www.softech.co.jp/mm_120704_pc.htm)
 
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-<!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
-
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
--->
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
 
 ---
 
-# Clicks Animations
+# Image Tokenizer パラメータ
 
-You can add `v-click` to elements to add a click animation.
+* **ダウンサンプル比:** 画像の解像度を下げる比率 (例: 8, 16)
+* **コードブックの語彙数:** トークンの種類 (例: 4096, 32768)
 
-<div v-click>
+256x256画像をダウンサンプル比8でトークン化 → 1024トークン
 
-This shows up when you click the slide:
+Llama3のボキャブラリーは128Kトークンなので、まだ桁が違う。
 
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
 
 ---
 
-# Motions
+# Image Tokenizer 訓練
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+生成画像が入力画像に近づくよう、以下の損失関数を最小化:
 
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
-```
+$L_{AE} = L_2 (x, \widehat{x}) + L_P (x, \widehat{x}) + \lambda_G L_G (\widehat{x})$
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
+* $L_2$: 平均二乗誤差
+* $L_P$: 知覚的損失 (LPIPS)
+* $L_G$: 敵対的損失 (PatchGAN)
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
 
 ---
 
-# LaTeX
 
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
+# Next-Token予測による画像生成
 
-<div h-3 />
+Image Tokenizerで生成されたトークン列をLlamaに入力し、自己回帰的に次のトークンを予測。文章生成と同様のアプローチ。
 
-Inline $\sqrt{3x-1}+(1+x)^2$
+PixelCNNやImageGPTも同様の手法だが、LlamaGenはLLMを使用することでスケーラビリティと生成品質を向上。
 
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
 
 ---
 
-# Diagrams
+# CFG (Classifier-Free Guidance)
 
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
+LlamaGenはStable Diffusion同様、CFGを用いて条件付き画像生成を実現。
 
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
+テキスト条件付けでは、T5でテキストを埋め込みに変換し、画像トークン埋め込みと連結して入力に使用。
 
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
+[CFG解説記事](https://cake-by-the-river.hatenablog.jp/entry/stable_diffusion_8)
 
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-```
-
-<br>
-
-###### Component Usage
-
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
-```
-
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
-
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
-```
-
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
-
----
-src: ./pages/imported-slides.md
-hide: false
----
 
 ---
 
-# Monaco Editor
+# Next-Token予測の訓練
 
-Slidev provides built-in Monaco Editor support.
+大規模言語モデルの事前学習と同様。予測トークンに対する交差エントロピー誤差を計算、逆伝播。
 
-Add `{monaco}` to the code block to turn it into an editor:
+CFGでは、条件付き損失と条件なし損失を組み合わせて最終的な損失を計算。
 
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
-```
-
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
-
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
-```
 
 ---
-layout: center
-class: text-center
+
+# 評価指標
+
+* **IS (Inception Score):** 生成画像の品質と多様性
+* **FID (Fréchet Inception Distance):** 生成画像と実画像の分布の距離
+* **rFID (Reconstruction FID):** Image Tokenizerの性能
+* **sFID:** FIDの改良版
+* **Precision/Recall:** 生成画像の多様性とプロンプト適合性
+* **PSNR/SSIM:** 画質の客観的評価
+
+
 ---
 
-# Learn More
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+# IS (Inception Score)
 
-<PoweredBySlidev mt-10 />
+InceptionNetを用いて、生成画像の品質を評価。値が高いほど良い。
+
+[IS解説記事](https://data-analytics.fun/2021/12/12/understanding-inception-score/)
+
+---
+
+# FID (Fréchet inception distance)
+
+生成画像と実画像の分布の距離を測る。値が小さいほど良い。
+
+---
+
+# スケール則
+
+LlamaGenもLLMと同様に、パラメータ数増加で高品質化。スケール則ばんざい！🙌
+
+---
+
+# LLMエコシステム🚀
+
+LlamaGenはLLMの最適化技術(AdamW, 勾配クリッピング等)とvLLMによる高速推論を活用。
+
+
+---
+
+
+# まとめ
+
+LlamaGenはLLMを自己回帰型画像生成に応用した新モデル。高品質なImage Tokenizerと効率的な訓練で拡散モデルに匹敵する品質を実現。LLMのスケール則にも従い、今後の発展に期待大！
+
+
+---
+
+# 今後の課題🤔
+
+* トークン数の制御
+* マルチモーダルへの拡張
+
+これらの課題解決で、LlamaGenは更なる進化を遂げるでしょう！
+
+
+---
+
+# Q&A
+
+ご清聴ありがとうございました！
+質問等あればお気軽にどうぞ！🙋‍♀️
