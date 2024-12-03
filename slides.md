@@ -1,4 +1,7 @@
-## LlamaGen: LlamaのNext-Token予測を使った画像生成【論文】 🦙
+# LlamaGen: LlamaのNext-Token予測を使った画像生成
+
+- Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation
+- [arXiv:2406.06525](https://arxiv.org/abs/2406.06525)
 
 ---
 
@@ -13,10 +16,16 @@
 将来は、図入り画像の前処理なし学習も可能になるかも？！
 
 ---
+layout: image-left
+image: https://cdn.bsky.app/img/avatar/plain/did:plc:et47te5fb7uv64pbltu37lcc/bafkreihfnrk5dlh43swtcstq7io6ox32z5jflucd6afirfpfm3j4zbvrnm@jpeg
+---
 
-# 発表のお知らせ📢
+# 自己紹介
 
-この記事の内容を、2024-12-03に行われる[松尾研LLMコミュニティ【Paper & Hacks】#28](https://matsuolab-community.connpass.com/event/338122/) にて発表します！
+* 名前: 小笠原寛明
+* Bluesky: [@hiroga.bsky.social](https://bsky.app/profile/hiroga.bsky.social)
+* Twitter: [@xhiroga](https://twitter.com/xhiroga)
+* 所属: なし（2025年より社会人学生として大学院進学予定）
 
 ---
 
@@ -36,12 +45,24 @@ LlamaGenはオープンソース！🎉
 
 自己回帰モデルによる画像生成は、拡散モデル以前から存在していました。
 
-* **PixelCNN (2016):** マスク畳み込みで自己回帰を実現
-* **ImageGPT (2020):** Transformerを用いた自己回帰型画像生成
-* **ViT (2020):** 画像認識のためのTransformer
-* **DALL-E (2021):** Transformerを用いた画像生成、VAEでトークン化
-* **VQGAN (2021):** ベクトル量子化とTransformerを用いた高解像度画像生成
-* **DiT (2023):** Transformerを用いた拡散モデル
+* **PixelCNN (2016)**[^Oord_et_al_2016a][^Oord_et_al_2016b]: 自己回帰モデルによる画像生成の先駆け的な研究。
+* **ImageGPT (2020)**[^Chen_et_al_2020]: Transformer を用いた自己回帰型画像生成モデル。画像を低解像度化し、ピクセルをトークンとして扱います。
+* **ViT (2020)**[^Dosovitskiy_et_al_2020]: 画像をパッチに分割し、各パッチをトークンとして Transformer エンコーダーに入力します。画像分類タスクで高い性能を達成し、Transformer が画像認識にも有効であることを示しました。
+* **DALL-E (2021)**[^Ramesh_et_al_2021]: Transformer を用いた画像生成モデル。画像を VAE で離散トークン化し、テキストと画像のペアデータで学習します。
+* **VQGAN (2021)**[^Esser_et_al_2021]: ベクトル量子化を用いた Image Tokenizer と Transformer を用いた自己回帰型画像生成モデル。高解像度画像生成において、Transformer が CNN よりも優れた性能を持つことを示しました。
+* **DiT (2023)**[^Peebles_and_Xie_2023]: 拡散モデルの一種で、ノイズ除去に Transformer を用います。拡散モデルと Transformer の利点を組み合わせることで、高品質な画像生成を実現しました。
+
+[^Oord_et_al_2016a]: A. van den Oord, N. Kalchbrenner, and K. Kavukcuoglu, “Pixel Recurrent Neural Networks,” Aug. 19, 2016, arXiv: arXiv:1601.06759. Accessed: Nov. 28, 2024. [Online]. Available: http://arxiv.org/abs/1601.06759
+[^Oord_et_al_2016b]: A. van den Oord, N. Kalchbrenner, O. Vinyals, L. Espeholt, A. Graves, and K. Kavukcuoglu, “Conditional Image Generation with PixelCNN Decoders,” Jun. 18, 2016, arXiv: arXiv:1606.05328. doi: 10.48550/arXiv.1606.05328.
+[^Chen_et_al_2020]: M. Chen et al., “Generative Pretraining from Pixels,” 2020.
+[^Dosovitskiy_et_al_2020]: A. Dosovitskiy et al., “An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale,” Oct. 22, 2020, arXiv: arXiv:2010.11929. doi: 10.48550/arXiv.2010.11929.
+[^Ramesh_et_al_2021]: A. Ramesh et al., “Zero-Shot Text-to-Image Generation,” Feb. 26, 2021, arXiv: arXiv:2102.12092. doi: 10.48550/arXiv.2102.12092.
+[^Esser_et_al_2021]: P. Esser, R. Rombach, and B. Ommer, “Taming Transformers for High-Resolution Image Synthesis,” Jun. 23, 2021, arXiv: arXiv:2012.09841. doi: 10.48550/arXiv.2012.09841.
+[^Peebles_and_Xie_2023]: W. Peebles and S. Xie, “Scalable Diffusion Models with Transformers,” Mar. 02, 2023, arXiv: arXiv:2212.09748. Accessed: Nov. 07, 2024. [Online]. Available: http://arxiv.org/abs/2212.09748
+
+---
+
+# LlamaGenの貢献
 
 LlamaGenの貢献は、LLMのノウハウを画像生成に適用し、高品質を実現した点！
 
@@ -99,13 +120,12 @@ graph LR
 VQGANと同じアーキテクチャを採用。
 
 ---
-layout: image-right
-image: https://github.com/CompVis/taming-transformers/blob/master/assets/teaser.png?raw=true
----
 
 # Image Tokenizer (VQGAN)
 
 VQGANのアーキテクチャ。LlamaGenとほぼ同じで、自己回帰モデルがTransformerかLlamaかの違い。
+
+![](https://github.com/CompVis/taming-transformers/blob/master/assets/teaser.png?raw=true)
 
 ---
 
@@ -185,7 +205,6 @@ CFGでは、条件付き損失と条件なし損失を組み合わせて最終�
 
 
 ---
-
 
 # IS (Inception Score)
 
