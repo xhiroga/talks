@@ -68,7 +68,7 @@ LlamaGenはオープンソースです！🎉
 
 # デモ
 
-[![YouTubeにアップロードしたデモ映像](https://img.youtube.com/vi/-KQ3EaLFvYk/2.jpg)](https://youtu.be/-KQ3EaLFvYk)
+<a href="https://youtu.be/-KQ3EaLFvYk" target="_blank"><img class="h-100" src="https://img.youtube.com/vi/-KQ3EaLFvYk/2.jpg"></a>
 
 ---
 
@@ -150,12 +150,14 @@ image: https://www.softech.co.jp/image/mm/mm_120704_pc/image02.gif
 
 # Image Tokenizer パラメータ
 
-* **ダウンサンプル比:** 画像の解像度を下げる比率 (例: 8, 16)
-* **コードブックの語彙数:** トークンの種類 (例: 4096, 32768)
+* **ダウンサンプル比:** 画像の解像度を下げる比率
+  * LlamaGenの値: 8, 16
+* **コードブックの語彙数:** トークンの種類
+  * LlamaGenの値: 4096, 32768
 
 256x256画像をダウンサンプル比8でトークン化 → 1024トークン
 
-Llama3のボキャブラリー(128Kトークン)に比べて、Image Tokenizerの語彙数は少ないことに注意してください。
+参考: Llama3のボキャブラリー(128Kトークン)
 
 ---
 
@@ -164,6 +166,8 @@ Llama3のボキャブラリー(128Kトークン)に比べて、Image Tokenizer�
 Image Tokenizerの訓練では、生成画像が入力画像に近づくよう、以下の損失関数を最小化します。
 
 $L_{AE} = L_2 (x, \widehat{x}) + L_P (x, \widehat{x}) + \lambda_G L_G (\widehat{x})$
+
+気持ちとしては、元の画像を再構成できているか？を、様々な抽象度で見比べています。
 
 ---
 
@@ -175,7 +179,11 @@ $L_2 (x, \widehat{x})$は、入力画像 $x$ と生成画像 $\widehat{x}$ の�
 
 # 知覚損失: $L_P$
 
-$L_P (x, \widehat{x})$は、入力画像 $x$ と生成画像 $\widehat{x}$ の間の知覚的損失です。LPIPS (Learned Perceptual Image Patch Similarity) を使用します。LPIPSは、人間の知覚に基づいて画像の類似性を評価する指標です。
+$L_P (x, \widehat{x})$は、入力画像 $x$ と生成画像 $\widehat{x}$ の間の知覚的損失です。LPIPS (Learned Perceptual Image Patch Similarity)[^Zhang_et_al_2018] を使用します。LPIPSは、人間の知覚に基づいて画像の類似性を評価する指標です。
+
+具体的には、AlexNet（画像分類モデル）の内部のべクトルの類似度で計測します。
+
+[^Zhang_et_al_2018]: R. Zhang, P. Isola, A. A. Efros, E. Shechtman, and O. Wang, “The Unreasonable Effectiveness of Deep Features as a Perceptual Metric,” Apr. 10, 2018, arXiv: arXiv:1801.03924. doi: 10.48550/arXiv.1801.03924.
 
 ---
 
@@ -185,12 +193,11 @@ $L_G (\widehat{x})$は、生成画像 $\widehat{x}$ に対する敵対的損失�
 
 ---
 
-
 # Next-Token予測による画像生成
 
 Image Tokenizerで生成されたトークン列をLlamaに入力し、自己回帰的に次のトークンを予測。文章生成と同様のアプローチ。
 
-PixelCNNやImageGPTも同様の手法ですが、LlamaGenはLLMのスケーラビリティと生成品質の向上を実現しています。
+PixelCNNやImageGPTも同様の手法ですが、LlamaGenはLLMを用いてスケーラビリティと生成品質の向上を実現しています。
 
 ---
 
@@ -218,6 +225,8 @@ CFGでは、条件付き損失と条件なし損失の2種類があり、それ�
 
 # 評価指標
 
+次の評価指標のうち、特に重要なIS, FID, Precision/Recallについて詳しく述べます。
+
 * **IS (Inception Score):** 生成画像の品質と多様性
 * **FID (Fréchet Inception Distance):** 生成画像と実画像の分布の距離
 * **rFID (Reconstruction FID):** Image Tokenizerの性能
@@ -227,23 +236,50 @@ CFGでは、条件付き損失と条件なし損失の2種類があり、それ�
 
 ---
 
-# IS (Inception Score)
+# IS (Inception Score)[^Salimans_et_al_2016]
 
-InceptionNetを用いて、生成画像の品質を評価。値が高いほど良い。
+[^Salimans_et_al_2016]: T. Salimans, I. Goodfellow, W. Zaremba, V. Cheung, A. Radford, and X. Chen, “Improved Techniques for Training GANs,” Jun. 10, 2016, arXiv: arXiv:1606.03498. doi: 10.48550/arXiv.1606.03498.
 
-[IS解説記事](https://data-analytics.fun/2021/12/12/understanding-inception-score/)
+画像のクラス分類モデルであるInceptionNetを用いて、画像生成モデルの品質を測る手法です。
+
+評価対象の画像生成モデルでまとまった量の画像を生成し、それらの画像について次の確率分布を測ります。
+
+1. ある画像の分類結果の分布。特定のラベルに集中しているほど良い
+2. 画像全体の分類結果の分布。全てのラベルに広がっているほど良い
+
+2つの確率分布を算出したら、それらの分布の違いを測ります。具体的には、KDL（カルバック・ライブラー・ダイバージェンス）を計算します。そして、すべての画像におけるKLDの平均を取り、そのexpを取った値がインセプションスコアとなります。
+
+値は高いほど良く、GANで約220、潜在拡散モデルで約250、LlamaGenでは約310となっています。
 
 ---
 
-# FID (Fréchet inception distance)
+# FID (Fréchet inception distance)[^Heusel_et_al_2017]
 
-生成画像と実画像の分布の距離を測る。値が小さいほど良い。
+[^Heusel_et_al_2017]: M. Heusel, H. Ramsauer, T. Unterthiner, B. Nessler, and S. Hochreiter, “GANs Trained by a Two Time-Scale Update Rule Converge to a Local Nash Equilibrium,” Jan. 12, 2018, arXiv: arXiv:1706.08500. doi: 10.48550/arXiv.1706.08500.
+
+日本語にするとフレチェインセプション距離でしょうか。2つの分布の違いを、中心の違いと散らばり方の違いの2つの観点から測り、足し合わせた値です。
+
+具体的には、次の2つの項を計算します。
+
+1. 2つの分布の平均べクトルの間の距離
+2. 2つの分布の分散共分散行列の差異のトレース（詳細は計算式を参照してください）
+
+値は小さいほど良く、BigGANで約7, 最新の評価にはDiffusionで約2となっています。
+
+計算にあたってはベンチマーク対象が必要で、LlamaGenではImageNetでベンチマークを行っています。
 
 ---
 
-# Precision/Recall
+# Precision/Recall[^Kynkaanniemi_et_al_2019]
 
-Precisionは生成画像がどれだけ真の分布に近いか、Recallは真の分布がどれだけ生成画像に含まれているかを測定します。
+[^Kynkaanniemi_et_al_2019]: T. Kynkäänniemi, T. Karras, S. Laine, J. Lehtinen, and T. Aila, “Improved Precision and Recall Metric for Assessing Generative Models,” Oct. 30, 2019, arXiv: arXiv:1904.06991. doi: 10.48550/arXiv.1904.06991.
+
+適合度と再現率です。実際の画像の分布と生成した画像の分布の重なり合う範囲を比較します。
+
+といっても、画像生成モデルに、学習データと全く同じ画像を再現させることは望めませんし、求められていません。そこで、実際の画像と生成した画像のそれぞれに似た画像がお互いに含まれているかを判断します。具体的には、画像をVGGなどでベクトル化し、特徴空間においてn番目に近い画像までの距離を半径とした超球を作り、比較対象の画像がその超球に含まれるかによって判断します。
+
+値は高いほどよく、LlamaGenのPrecisionは約0.8、Recallは約0.5となっています。
+
 ---
 
 # 評価
