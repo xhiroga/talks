@@ -3,5 +3,5 @@
 ## Getting started
 
 - `pnpm install`
-- `pnpm run dev`
+- `pnpm dev presentations/llamagen-autoregressive-model-image-generation/slides.md`
 - visit <http://localhost:3030>
