@@ -1,7 +1,8 @@
-## マルチモーダル理解と生成の統一 / DeepSeek Janus, etc...
+## マルチモーダル理解と生成の統合 / DeepSeek Janus, etc...
 
+- Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation
 - Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling
-- [arXiv:2501.17811](https://arxiv.org/abs/2501.17811)
+- [arXiv:2410.13848](http://arxiv.org/abs/2410.13848) / [arXiv:2501.17811](https://arxiv.org/abs/2501.17811)
 
 ---
 
@@ -10,16 +11,15 @@
 - はじめに
 - DeepSeek Janus (Pro)とは？
 - モデルの概要
-  - Janus (Pro)のアーキテクチャ（理解）
-  - Janus (Pro)のアーキテクチャ（生成）
+  - Janus (Pro)のアーキテクチャ
   - デモ
 - Janusから学ぶ
   - 視覚エンコーディング分離
   - 学習戦略
-- マルチモーダルLLMの流れ
-  - Chameleon
-  - Janus
-  - 統一画像トークナイザー
+- マルチモーダル理解・生成の統合
+  - Chameleon, etc...
+  - Janus, etc...
+  - 画像トークナイザーの改良
 - まとめ
 - 参考文献など
 
@@ -73,7 +73,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/f/f4/Janus-Vatican.JPG
 
 ---
 
-## Janus (Pro)のアーキテクチャ（理解）
+# Janus (Pro)のアーキテクチャ（理解）
 
 ```mermaid
 flowchart LR
@@ -95,7 +95,18 @@ flowchart LR
 
 ---
 
-## Janus (Pro)のアーキテクチャ（生成）
+# Janus (Pro)のアーキテクチャ（生成）
+
+次トークン予測の概要
+
+<img class="h-60" src="/huang-figure3.png">
+
+図: M. Huang, Z. Mao, Z. Chen, and Y. Zhang, “Towards Accurate Image Coding: Improved Autoregressive Image Generation with Dynamic Vector Quantization,” May 19, 2023, arXiv: arXiv:2305.11718. doi: 10.48550/arXiv.2305.11718.
+
+
+---
+
+# Janus (Pro)のアーキテクチャ（生成）
 
 ```mermaid
 flowchart LR
@@ -203,45 +214,49 @@ Janus Proは、Janusと比較して次の通り改良されている
 
 ---
 
-# マルチモーダルLLMの流れ: Chameleon
+# マルチモーダル理解・生成の統合: Chameleon, etc...
 
-TODO: これが前提であるということわり
+- 代表的な統合マルチモーダル理解・生成モデル
+- それ以前の、LLMと拡散モデルを組み合わせたようなモデルとは異なり、単一のモデルで理解・生成を完結させる
+- 理解と生成で同一の画像トークナイザーを用いる
+- 「文章と画像が混ざったドキュメント」を単一モデルの一回の推論で出力することができる（例）
 
-- Janus以前から登場していたマルチモーダル理解・生成モデル
-- 理解と生成で同一の画像トークナイザーを用いている
+<img class="h-50" src="/chameleon-figure-4.png">
 
-<img class="h-80" src="/chameleon-figure-4.png">
+図: C. Team, “Chameleon: Mixed-Modal Early-Fusion Foundation Models,” May 16, 2024, arXiv: arXiv:2405.09818. doi: 10.48550/arXiv.2405.09818.
 
 ---
 
-# マルチモーダルLLMの流れ: Janus
+# マルチモーダル理解・生成の統合: Janus, etc...
+
+- 前述の通り、視覚理解と生成で異なるトークナイザーを用いている
+- 理解タスクでは画像の意味が重要だが、生成タスクでは空間の構造やテクスチャを詳細に捉えることが必要
+- つまり求められる符号化の質が異なるため
+- 統合されたトークナイザーよりも効率的だが、モデルが複雑になる欠点がある
 
 ---
 layout: two-cols-header
 ---
 
-# マルチモーダルLLMの流れ: 統一画像トークナイザー
+# マルチモーダル理解・生成の統合: 画像トークナイザーの改良
 
-TODO: 統一画像トークナイザー、というのは正しい？
+単一の画像トークナイザーで、理解と生成のそれぞれに適した符号化を与える試みがある。いずれも論文を参照ください。
 
-TODO: もうちょっと理解して書き、外部リソースに誘導
+::left::
 
-:::left:::
+## TokenFlow
 
 - 理解と生成で同一のトークナイザーを用いつつも、タスクごとに異なる特性を発揮させるアーキテクチャが提案されている
-- TokenFlowは、意味的な特徴とピクセルレベルの詳細に対応した、リンクする2つのコードセットを持つトークナイザーを提案している
+- TokenFlowは、意味的な特徴とピクセルレベルの詳細に対応した、2つのコードブックの情報を併せ持つ量子化の手法
 
-:::right:::
+::right::
 
-- TURINGが提案したOne-D-Pieceでは、画像の重要な情報をベクトルの先頭に集中させることで、先頭のケタを用いれば必要な解像度が得られるようにしている
+## One-D-Piece
 
----
-
-# おすすめ記事
-
-TODO: なぜおすすめ？
-
-[![One-D-Piece](https://pbs.twimg.com/card_img/1886991035404050435/A65mMgoo?format=png&name=medium)](https://zenn.dev/turing_motors/articles/6d77c5a3b3712e)
+- TURINGが提案した画像トークナイザー
+- 画像をトークナイズするために必要なトークン数を可変にできる
+- パッチ画像とトークンを1:1対応させずに、潜在変数に埋め込みを集める "TiTok" と、重要な情報を先頭のトークンに集める "Tail Drop" の併せ技
+- [Zennの記事](https://zenn.dev/turing_motors/articles/6d77c5a3b3712e)も参照
 
 ---
 
@@ -258,21 +273,16 @@ TODO: なぜおすすめ？
 - C. Wu et al., “Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation,” Oct. 17, 2024, arXiv: arXiv:2410.13848. doi: 10.48550/arXiv.2410.13848.
 - Y. Ma et al., “JanusFlow: Harmonizing Autoregression and Rectified Flow for Unified Multimodal Understanding and Generation,” Nov. 12, 2024, arXiv: arXiv:2411.07975. doi: 10.48550/arXiv.2411.07975.
 - X. Chen et al., “Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling,” Jan. 29, 2025, arXiv: arXiv:2501.17811. doi: 10.48550/arXiv.2501.17811.
+- X. Zhai, B. Mustafa, A. Kolesnikov, and L. Beyer, “Sigmoid Loss for Language Image Pre-Training,” Sep. 27, 2023, arXiv: arXiv:2303.15343. doi: 10.48550/arXiv.2303.15343.
+- P. Sun et al., “Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation,” Jun. 10, 2024, arXiv: arXiv:2406.06525. doi: 10.48550/arXiv.2406.06525.
 
 ---
 
 # 参考文献 (2)
 
-- X. Zhai, B. Mustafa, A. Kolesnikov, and L. Beyer, “Sigmoid Loss for Language Image Pre-Training,” Sep. 27, 2023, arXiv: arXiv:2303.15343. doi: 10.48550/arXiv.2303.15343.
-- P. Sun et al., “Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation,” Jun. 10, 2024, arXiv: arXiv:2406.06525. doi: 10.48550/arXiv.2406.06525.
+- J. Xiong et al., “Autoregressive Models in Vision: A Survey,” Nov. 08, 2024, arXiv: arXiv:2411.05902. doi: 10.48550/arXiv.2411.05902.
 - C. Team, “Chameleon: Mixed-Modal Early-Fusion Foundation Models,” May 16, 2024, arXiv: arXiv:2405.09818. doi: 10.48550/arXiv.2405.09818.
+- X. Wang et al., “Emu3: Next-Token Prediction is All You Need,” Sep. 27, 2024, arXiv: arXiv:2409.18869. doi: 10.48550/arXiv.2409.18869.
 - L. Qu et al., “TokenFlow: Unified Image Tokenizer for Multimodal Understanding and Generation,” Dec. 04, 2024, arXiv: arXiv:2412.03069. doi: 10.48550/arXiv.2412.03069.
 - K. Miwa, K. Sasaki, H. Arai, T. Takahashi, and Y. Yamaguchi, “One-D-Piece: Image Tokenizer Meets Quality-Controllable Compression,” Jan. 17, 2025, arXiv: arXiv:2501.10064. doi: 10.48550/arXiv.2501.10064.
-
----
-
-# 関連情報
-
-- [Once you think they're done, Deepseek releases Janus-Series: Unified Multimodal Understanding and Generation Models](https://www.reddit.com/r/StableDiffusion/comments/1ibdhct/once_you_think_theyre_done_deepseek_releases/)
-- [論文解説 : Janus-Pro: Unified Multimodal Understanding andGeneration with Data and Model Scaling](https://note.com/atakana/n/nd1cb35aa5fe2)
 - [可変品質での圧縮を実現する画像トークナイザ「One-D-Piece」を公開しました](https://zenn.dev/turing_motors/articles/6d77c5a3b3712e)
