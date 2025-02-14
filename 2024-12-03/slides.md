@@ -2,6 +2,7 @@
 
 - Autoregressive Model Beats Diffusion: Llama for Scalable Image Generation
 - [arXiv:2406.06525](https://arxiv.org/abs/2406.06525)
+- 小笠原寛明 @ 松尾研LLMコミュニティ【Paper&Hacks#28】
 
 ---
 

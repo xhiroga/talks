@@ -3,6 +3,7 @@
 - Janus: Decoupling Visual Encoding for Unified Multimodal Understanding and Generation
 - Janus-Pro: Unified Multimodal Understanding and Generation with Data and Model Scaling
 - [arXiv:2410.13848](http://arxiv.org/abs/2410.13848) / [arXiv:2501.17811](https://arxiv.org/abs/2501.17811)
+- 小笠原寛明 @ 松尾研LLMコミュニティ【Paper&Hacks#35】
 
 ---
 
@@ -51,6 +52,8 @@ image: https://cdn.bsky.app/img/avatar/plain/did:plc:et47te5fb7uv64pbltu37lcc/ba
 - Visual Chat & Interleaved Text/Image Generationの例 (Chameleon)
 
 <img class="h-80" src="/chameleon-figure-7.png">
+
+図: C. Team, “Chameleon: Mixed-Modal Early-Fusion Foundation Models,” May 16, 2024, arXiv: arXiv:2405.09818. doi: 10.48550/arXiv.2405.09818.
 
 ---
 
