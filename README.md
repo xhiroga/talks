@@ -3,5 +3,5 @@
 ## Getting started
 
 - `pnpm install`
-- `pnpm dev 2025-09-28.md`
+- `make`
 - visit <http://localhost:3030>
