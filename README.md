@@ -3,5 +3,5 @@
 ## Getting started
 
 - `pnpm install`
-- `pnpm dev 2024-12-03/slides.md`
+- `pnpm dev 2025-09-28.md`
 - visit <http://localhost:3030>
