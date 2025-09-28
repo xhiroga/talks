@@ -24,9 +24,9 @@ layout: two-cols-header
 
 ### 商用ソフトウェア
 
-- **postshot**: Windows向けソフト
-- **Scaniverce**: Pokemon GO でおなじみ Niantic が手がける3Dスキャニングアプリ。Photogrammetry / 3D Gaussian Splatting の両方に対応
-- LumaAI: 
+ - **postshot**: Windows向けソフト
+ - **Scaniverce**: Pokemon GO でおなじみ Niantic が手がける3Dスキャニングアプリ。Photogrammetry / 3D Gaussian Splatting の両方に対応
+ - **LumaAI**: iOS/Androidアプリで撮影した素材をクラウド処理し、約20〜30分で3DGSを生成。
 
 ---
 

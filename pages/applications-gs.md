@@ -8,7 +8,7 @@ VRChatについては、[有志によるライブラリ](https://github.com/Mich
 
 ## Tokogrammetry Museum by Tokoyoshi @ VRChat
 
-[【VRChatワールド】超ボリューム！フォトグラメトリと3DGSを集めたワールド「Tokogrammetry Museum」 | ツバメヤロク](https://tsuba-roku.com/entry/2025/09/20/092718)が詳しいです。
+[フォトグラメトリと3DGSを集めたワールド「Tokogrammetry Museum」 | ツバメヤロク](https://tsuba-roku.com/entry/2025/09/20/092718)が詳しいです。
 
 <a href="https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info" target="_blank"><img class="h-100 place-self-center" src="/public/VRChat-tokogrammetry.png"></a>
 
