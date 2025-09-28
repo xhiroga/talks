@@ -7,7 +7,7 @@ references:
 - [3D生成手法の比較(フォトグラメトリ & NeRF & 3D Gaussian Splattig)](https://qiita.com/yukis0111/items/87359b30ddef2856d3fa)
 ---
 
-## 3D生成技術の歴史
+## 3次元再構成の歴史
 
 | 年代 | 技術 | 主な出来事 |
 | --- | --- | --- |
@@ -36,18 +36,30 @@ references:
 写真からメッシュデータを生成することをフォトグラメトリと呼ぶことが多い。
 
 ---
+references:
+- [SfM MVS 技術基盤](https://chatgpt.com/c/68d9b223-9588-8325-aa86-52a18c028cf0)
+- https://chatgpt.com/c/68d9b5e0-4634-8320-b0c6-f90ce14abb75
+---
 
-## SfM/MVS (2000~)
+## SfM/MVS
 
 <p/>
 
-- 高精度な点群データを生成するために用いられる手法。
-- SfM (Structure from Motion)
-- MVS (Multi-View Stereo)
+- 深層学習によって複数の写真から点群を得る手法
+- SfM (Structure from Motion) と MVS (Multi-View Stereo) を組み合わせて用いる
+- SfMは写真からのカメラ位置推定・疎な点群の推定を、MVSが密な点群の推定を担当する。その後メッシュ化することも多い
+- SfMの実装としてはCOLMAP, MVSの実装としてはOpenMVSなどがある
+- メッシュ再構成のパイプラインは次の図の通り
 
-<a href="https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html" target="_blank"><img class="place-self-center" src="/hokudai-dgp-research_sfm_mvs-image001.webp"></a>
+<a href="https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html" target="_blank"><img class="h-60 place-self-center" src="/hokudai-dgp-research_sfm_mvs-image001.webp"></a>[^hokudai]
 
-引用: 北海道大学 ディジタル幾何処理工学研究室「SfM-MVSの高品質化」
+[^hokudai]: [北海道大学 ディジタル幾何処理工学研究室, "SfM-MVSの高品質化".](https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html.)
+
+---
+
+<a href="https://www.youtube.com/watch?v=XBAkhyJE-k8" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/XBAkhyJE-k8/maxresdefault.jpg"></a>[^OpenMVS]
+
+[^OpenMVS]: [OpenMVS, "Chamois Statue by OpenMVS on Sketchfab"](https://sketchfab.com/models/3aedcdd22c31447199c18dd9aec5d952)を筆者がデモ
 
 ---
 references:
@@ -112,7 +124,9 @@ Gaussianではない単純なPoint Splattingで、Splattingの手法を理解し
 
 ---
 
-<a href="https://www.youtube.com/watch?v=PWtkCRQaahY" target="_blank"><img class="h-120 place-self-center" src="https://img.youtube.com/vi/PWtkCRQaahY/maxresdefault.jpg"></a>
+<a href="https://www.youtube.com/watch?v=PWtkCRQaahY" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/PWtkCRQaahY/maxresdefault.jpg"></a>[^potree]
+
+[^potree]: [Potree, "Heidentor"](https://potree.org/potree/examples/vr_heidentor.html)を筆者がデモ
 
 ---
 
