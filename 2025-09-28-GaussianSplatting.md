@@ -8,9 +8,15 @@
 <p/>
 
 - カメラ付きスマートフォン
-- PC
+- Windows PC
 - Googleアカウント
 - スキャンしたい小物（あれば）
+
+---
+
+## インストール
+
+[postshot](https://www.jawset.com/)と[RealityScan](https://www.realityscan.com/en-US/news/realityscan-20-new-release-brings-powerful-new-features-to-a-rebranded-realitycapture)のインストールをお願いします。
 
 ---
 
