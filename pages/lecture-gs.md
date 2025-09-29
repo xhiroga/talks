@@ -43,7 +43,7 @@ notes:
 - デファクト実装として [COLMAP](https://github.com/colmap/colmap), [OpenMVS](https://github.com/cdcseacave/openMVS)
 ---
 
-## SfM/MVS
+## SfM / MVS
 
 <p/>
 

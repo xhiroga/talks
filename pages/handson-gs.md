@@ -80,7 +80,7 @@ references:
 
 ## Gaussian Splatting の制作ワークフロー
 
-[🌈ガウシアンスプラッティング活用 | 龍 lilea](https://zenn.dev/lilealab/books/how-to-photogrammety/viewer/3dgs)を参照ください。
+龍(@lilea)さんの[🌈ガウシアンスプラッティング活用 | ](https://zenn.dev/lilealab/books/how-to-photogrammety/viewer/3dgs)が非常に勉強になるので、ご覧ください。
 
 ---
 layout: two-cols-header
