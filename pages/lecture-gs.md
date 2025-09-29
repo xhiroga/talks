@@ -12,9 +12,9 @@ references:
 | 年代 | 技術 | 主な出来事 |
 | --- | --- | --- |
 | 1860年代 | フォトグラメトリ | 1867年にドイツで最初のフォトグラメトリ研究が報告され、写真測量が測量・地図作成に利用され始める |
-| 2000年代 | SfM / MVS | デジタル写真と計算機ビジョンの発展でSfMとMVSが一般化し、点群生成やカメラ推定が高精度化 |
+| 2000年代 | SfM / MVS | デジタル写真からのカメラ位置推定(SfM)や点群の生成(MVS)などの手法が登場 |
 | 2020年 | NeRF | MildenhallらによるNeRF論文が発表され、ニューラルラジアンスフィールドでの高品質な新規視点生成が注目を集める |
-| 2023年 | 3D Gaussian Splatting | Kerblらがリアルタイムレンダリング可能な3D Gaussian Splattingを発表し、即時可視化と高速更新が可能に |
+| 2023年 | 3D Gaussian Splatting | Kerblらがリアルタイムレンダリング可能な3D Gaussian Splattingを発表 |
 
 ---
 references:
@@ -26,7 +26,7 @@ references:
 
 ## フォトグラメトリ
 
-写真画像から対象物の幾何学特性を得る方法。特に、写真から3次元データを得る方法。初出は1867年。
+写真画像から対象物の幾何学特性を得る方法。特に、写真から3次元データを得る方法。
 
 - Photogrammetry
   - photo (写真)
@@ -39,17 +39,17 @@ references:
 references:
 - [SfM MVS 技術基盤](https://chatgpt.com/c/68d9b223-9588-8325-aa86-52a18c028cf0)
 - https://chatgpt.com/c/68d9b5e0-4634-8320-b0c6-f90ce14abb75
+notes:
+- デファクト実装として [COLMAP](https://github.com/colmap/colmap), [OpenMVS](https://github.com/cdcseacave/openMVS)
 ---
 
 ## SfM/MVS
 
 <p/>
 
-- 深層学習によって複数の写真から点群を得る手法
-- SfM (Structure from Motion) と MVS (Multi-View Stereo) を組み合わせて用いる
-- SfMは写真からのカメラ位置推定・疎な点群の推定を、MVSが密な点群の推定を担当する。その後メッシュ化することも多い
-- SfMの実装としてはCOLMAP, MVSの実装としてはOpenMVSなどがある
-- メッシュ再構成のパイプラインは次の図の通り
+- 写真から点群を得る手法。SfM (Structure from Motion) / MVS (Multi-View Stereo)
+- SfMがカメラ位置・疎な点群の推定を、MVSが密な点群の推定を担当。その後、適宜メッシュ化
+- パイプラインは次の図の通り
 
 <a href="https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html" target="_blank"><img class="h-60 place-self-center" src="/hokudai-dgp-research_sfm_mvs-image001.webp"></a>[^hokudai]
 
@@ -96,7 +96,10 @@ references:
 
 ### Gaussain (ガウシアン)
 
-Gaussianとはガウス分布（正規分布）のこと。メッシュや密な点群ではなく、疎な点群に対して大きさ・色・透明度を3次元ガウス分布として持つ
+<p/>
+
+- Gaussianとはガウス分布（正規分布）のこと。
+- メッシュや密な点群ではなく、疎な点群に対して大きさ・色・透明度を3次元ガウス分布として持つ
 
 ::right::
 
@@ -108,7 +111,7 @@ Gaussianとはガウス分布（正規分布）のこと。メッシュや密な
 - スプラッティング: 各点をスクリーン側に投影する
 - 三角形ラスタライズ: メッシュで利用可能。手前の三角形を塗る
 
-学習したデータを「スプラット」と呼ぶことが多い。
+推定したデータは「スプラット」と呼ぶことが多い。
 
 ---
 
@@ -120,8 +123,6 @@ Gaussianではない単純なPoint Splattingで、Splattingの手法を理解し
 - 例2: [ライオン](https://potree.org/potree/examples/vr_lion.html)
 - 例3: [ツールバー](https://potree.org/potree/examples/toolbar.html)
 
-参考: [potree/potree](https://github.com/potree/potree)
-
 ---
 
 <a href="https://www.youtube.com/watch?v=PWtkCRQaahY" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/PWtkCRQaahY/maxresdefault.jpg"></a>[^potree]
@@ -129,10 +130,21 @@ Gaussianではない単純なPoint Splattingで、Splattingの手法を理解し
 [^potree]: [Potree, "Heidentor"](https://potree.org/potree/examples/vr_heidentor.html)を筆者がデモ
 
 ---
+references:
+- [高精細な3D空間を再現する3D Gaussian Splattingとは？従来の3Dモデルとの違いを解説します | SEKIDO](https://sekido-rc.com/blog/2025/01/16/enterprise_0025/)
+---
 
 ## Gaussian Splatting の仕組み
 
-[高精細な3D空間を再現する3D Gaussian Splattingとは？従来の3Dモデルとの違いを解説します | SEKIDO](https://sekido-rc.com/blog/2025/01/16/enterprise_0025/)を参照ください。
+Gaussian Splatting では、点群の各点ごとに保存された透明度・大きさの情報を用いて、1つの点で広い範囲をカバーします。
+
+[mkkellogg/GaussianSplats3D](https://github.com/mkkellogg/GaussianSplats3D)のデモを開いて、**P**で3Dガウシアンスプラッティングと点群のモードを切り替えてみましょう。
+
+---
+
+<a href="https://www.youtube.com/watch?v=88X2gp_Kf_A" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/88X2gp_Kf_A/maxresdefault.jpg"></a>[^markkellogg]
+
+[^markkellogg]: [Mark Kellogg, "3D Gaussian Splatting with Three.js"](https://projects.markkellogg.org/threejs/demo_gaussian_splats_3d.php)を筆者がデモ
 
 ---
 references:

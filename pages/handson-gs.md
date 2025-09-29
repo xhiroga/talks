@@ -29,6 +29,9 @@ layout: two-cols-header
  - **LumaAI**: iOS/Androidアプリで撮影した素材をクラウド処理し、約20〜30分で3DGSを生成。Gaussian Splat向けのPLYやOBJ/USDZなどへ書き出せる
 
 ---
+references:
+- https://chatgpt.com/c/68d9c3b5-af40-8329-a987-e4a1ac69f7c4
+---
 
 ## Gaussian Splatting の出力フォーマット
 
