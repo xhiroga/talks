@@ -67,7 +67,7 @@ references:
 | | 主な特徴 | サイズ / 品質 | 主な用途・対応ツール |
 | --- | --- | --- | --- |
 | PLY | 本来は点群用 | 非圧縮 | nerfstudioなどで標準的 |
-| SPLAT | Inriaチームの公式論文実装が由来 | PLYより軽量かつロスレス | GraphDeco Viewerなど |
+| SPLAT | Inriaチームの公式論文実装が由来 | PLYより軽量だが実装依存 | GraphDeco Viewerなど |
 | NPZ | Compact 3DGSが出力するNumPy圧縮 | PLY比より圧縮率高、準ロスレス | Compact-3DGSなど |
 | SOG | WebPテクスチャ＋`meta.json`構成 | PLY比15〜20倍小さいロッシー圧縮 | PlayCanvasなど |
 | SPZ | Niantic提案のgzipバイナリ | PLY比約10倍小さい実用品質 | Scaniverseなど |

@@ -51,6 +51,12 @@ The team fixed the camera angle while introducing glitch-like disruptions to emp
 [1]: [Framestore, "https://www.instagram.com/reel/DO6DbZkjBfu/"](https://www.instagram.com/reel/DO6DbZkjBfu/)
 
 ---
+
+## Integrating Gaussian Splatting into Applications
+
+I recommend checking out [3D Gaussian Splatting | Awesome PlayCanvas Awesome](https://github.com/playcanvas/awesome-playcanvas/blob/main/README.md#3d-gaussian-splatting).
+
+---
 references:
 - https://chatgpt.com/c/68da0409-84f0-8330-9b78-4d1840679ac6
 ---

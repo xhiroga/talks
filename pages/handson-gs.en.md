@@ -67,7 +67,7 @@ As of September 2025, there is no industry-standard format dedicated to Gaussian
 | | Key Characteristics | Size / Quality | Primary Use Cases & Tools |
 | --- | --- | --- | --- |
 | PLY | Originally for point clouds | Uncompressed | Common default in tools like nerfstudio |
-| SPLAT | Originated from the official Inria implementation | Smaller than PLY and lossless | GraphDeco Viewer, etc. |
+| SPLAT | Originated from the official Inria implementation | Smaller than PLY but implementation-dependent | GraphDeco Viewer, etc. |
 | NPZ | NumPy-compressed format output by Compact 3DGS | Higher compression than PLY with near-lossless quality | Compact-3DGS, etc. |
 | SOG | WebP textures plus `meta.json` | 15–20× smaller than PLY with lossy compression | PlayCanvas, etc. |
 | SPZ | Gzip-based binary proposed by Niantic | Around 10× smaller than PLY with production-ready quality | Scaniverse, etc. |

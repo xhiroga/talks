@@ -51,6 +51,12 @@ layout: two-cols-header
 [1]: [framestore, "https://www.instagram.com/reel/DO6DbZkjBfu/"](https://www.instagram.com/reel/DO6DbZkjBfu/)
 
 ---
+
+## Gaussian Splatting をアプリケーションに組み込む
+
+[3D Gaussian Splatting | Awesome PlayCanvas Awesome](https://github.com/playcanvas/awesome-playcanvas/blob/main/README.md#3d-gaussian-splatting)を見るのがおすすめです。
+
+---
 references:
 - https://chatgpt.com/c/68da0409-84f0-8330-9b78-4d1840679ac6
 ---
