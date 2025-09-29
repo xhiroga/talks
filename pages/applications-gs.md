@@ -1,8 +1,68 @@
-## Gaussian Splatting 作品を探す
+---
+references:
+- https://chatgpt.com/c/68da0409-84f0-8330-9b78-4d1840679ac6
+---
 
-VRChat や Arrival.Space などにGaussian Splattingを用いた作品が発表されています。
+## Gaussian Splatting を映像作品に用いる
 
-VRChatについては、[有志によるライブラリ](https://github.com/MichaelMoroz/VRChatGaussianSplatting)も公開されています。
+映像作品でも 3D/4D Gaussian Splatting が徐々に使われ始めています。次のような使われ方があります。
+
+- **実写の映像に、従来はCGでなければ難しかった表現を取り入れる**
+- あえて高画質に撮りすぎず、Gaussian Splatting特有の風味を活かす
+
+---
+
+## Where did the day go? [Gaussian splatting short film]
+
+Carlo氏によるショート映像作品。[メイキング](https://www.youtube.com/watch?v=GXFWfYJf64g)も存在。
+
+<a href="https://www.youtube.com/watch?v=X4oh_6DjF1M" target="_blank"><img class="h-80 place-self-center" src="https://img.youtube.com/vi/X4oh_6DjF1M/maxresdefault.jpg"></a>[^carlo_oppermann]
+
+[^carlo_oppermann]: [Carlo Oppermann, "Where did the day go? [Gaussian splatting short film],"](https://www.youtube.com/watch?v=X4oh_6DjF1M)
+
+---
+
+## USHER, Pheelz - Ruin (Official Music Video)
+
+Usher（アッシャー）のMVで採用。Gaussian Splattingと通常映像を違和感なく繋げている。
+
+<a href="https://www.youtube.com/watch?v=Dsv9EAuW5H8" target="_blank"><img class="h-80 place-self-center" src="https://img.youtube.com/vi/Dsv9EAuW5H8/maxresdefault.jpg"></a>[^usher]
+
+[^usher]: [Usher, "USHER, Pheelz - Ruin (Official Music Video),"](https://www.youtube.com/watch?v=Dsv9EAuW5H8)
+
+---
+layout: two-cols-header
+---
+
+## Superman (2024)
+
+<p/>
+
+::left::
+
+おそらくハリウッドで一番初めに4D Gaussian Splattingが使われた事例。
+
+カメラ角度はそのままで、グリッチのように映像が乱れる表現を取り入れることで、3Dの立体映像であることを印象付けた。
+
+::right::
+
+<a href="https://www.instagram.com/reel/DO6DbZkjBfu/" target="_blank"><img class="h-80 place-self-center" src="/framestore-superman.png"></a>
+
+[1]: [framestore, "https://www.instagram.com/reel/DO6DbZkjBfu/"](https://www.instagram.com/reel/DO6DbZkjBfu/)
+
+---
+references:
+- https://chatgpt.com/c/68da0409-84f0-8330-9b78-4d1840679ac6
+---
+
+## Gaussian Splatting で作ったスプラットを公開する
+
+Gaussian Splatting で作成したスプラットは、次のようなプラットフォームで共有することができます。あくまで一例です。
+
+- VRChat: ワールドを自作し、スプラットを組み込むことができます。[有志によるライブラリ](https://github.com/MichaelMoroz/VRChatGaussianSplatting)もあります
+- Arrival.Space: ブラウザで表示できる新興メタバース
+- Gracia: SteamVRとMeta Questでアクセス可能な3D/4D Gaussian Splattingを表示可能なアプリ
+- Scaniverse: アプリ内でスプラットの作成から公開・検索まで一貫して可能
 
 ---
 
@@ -10,19 +70,19 @@ VRChatについては、[有志によるライブラリ](https://github.com/Mich
 
 [フォトグラメトリと3DGSを集めたワールド「Tokogrammetry Museum」 | ツバメヤロク](https://tsuba-roku.com/entry/2025/09/20/092718)が詳しいです。
 
-<a href="https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info" target="_blank"><img class="h-100 place-self-center" src="/public/VRChat-tokogrammetry.png"></a>
+<a href="https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-tokogrammetry.png"></a>
 
 ---
 
 ## Spatialography by VoxelKei @ VRChat
 
-<a href="https://vrchat.com/home/world/wrld_0ab57861-abb2-4802-8783-4ae089ea268b" target="_blank"><img class="h-100 place-self-center" src="/public/VRChat-spatialography.png"></a>
+<a href="https://vrchat.com/home/world/wrld_0ab57861-abb2-4802-8783-4ae089ea268b" target="_blank"><img class="h-100 place-self-center" src="/VRChat-spatialography.png"></a>
 
 ---
 
 ## Yonago Castle by lilea @ VRChat
 
-<a href="https://vrchat.com/home/world/wrld_f3bf6f63-5eff-4290-b73c-fe14447539dd/info" target="_blank"><img class="h-100 place-self-center" src="/public/VRChat-yonago.png"></a>
+<a href="https://vrchat.com/home/world/wrld_f3bf6f63-5eff-4290-b73c-fe14447539dd/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-yonago.png"></a>
 
 ---
 
@@ -39,7 +99,27 @@ VRChatについては、[有志によるライブラリ](https://github.com/Mich
 <a href="https://www.youtube.com/watch?v=9aKryeDywx4" target="_blank"><img class="h-120 place-self-center" src="https://img.youtube.com/vi/9aKryeDywx4/maxresdefault.jpg"></a>
 
 ---
+layout: two-cols-header
+references:
+- https://www.moguravr.com/gracia-dynamic-gaussian-splats-release/
+---
+
+## Gracia
+
+Meta QuestとSteamVRで体験可能なボリュメトリックビデオ（自由に視点を変更できる動画）。
+
+体感1分程度の映像でファイルサイズは~2GBほど。
+
+::left::
+
+<img class="w-100 place-self-center" src="/gracia-1.jpg">
+
+::right::
+
+<img class="w-100 place-self-center" src="/gracia-2.jpg">
+
+---
 
 ## おまけ: ショッパーズ長浜店 by Tokoyoshi 
 
-<a href="https://vrchat.com/home/world/wrld_b49c6ee2-c2e3-4dc6-bf09-3aaea66208b1/info" target="_blank"><img class="h-100 place-self-center" src="/public/VRChat-shoppers.png"></a>
+<a href="https://vrchat.com/home/world/wrld_b49c6ee2-c2e3-4dc6-bf09-3aaea66208b1/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-shoppers.png"></a>

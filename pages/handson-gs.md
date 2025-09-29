@@ -164,7 +164,7 @@ layout: two-cols-header
 
 ## ブラウザでスプラットを見る
 
-<p/>
+nerfstudioやpostshotで作成したスプラットを、ブラウザで簡単にプレビューできます。
 
 ::left::
 
