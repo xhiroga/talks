@@ -62,6 +62,8 @@ references:
 
 2025年9月現在、Gaussian Splatting専用の業界標準フォーマットはありません。
 
+<div class="text-xs">
+
 | | 主な特徴 | サイズ / 品質 | 主な用途・対応ツール |
 | --- | --- | --- | --- |
 | PLY | 本来は点群用 | 非圧縮 | nerfstudioなどで標準的 |
@@ -69,6 +71,8 @@ references:
 | NPZ | Compact 3DGSが出力するNumPy圧縮 | PLY比より圧縮率高、準ロスレス | Compact-3DGSなど |
 | SOG | WebPテクスチャ＋`meta.json`構成 | PLY比15〜20倍小さいロッシー圧縮 | PlayCanvasなど |
 | SPZ | Niantic提案のgzipバイナリ | PLY比約10倍小さい実用品質 | Scaniverseなど |
+
+</div>
 
 ---
 references:
@@ -80,7 +84,7 @@ references:
 
 ## Gaussian Splatting の制作ワークフロー
 
-龍(@lilea)さんの[🌈ガウシアンスプラッティング活用 | ](https://zenn.dev/lilealab/books/how-to-photogrammety/viewer/3dgs)が非常に勉強になるので、ご覧ください。
+龍(@lilea)さんの[🌈ガウシアンスプラッティング活用](https://zenn.dev/lilealab/books/how-to-photogrammety/viewer/3dgs)が非常に勉強になるので、ご覧ください。
 
 ---
 layout: two-cols-header

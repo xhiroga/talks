@@ -51,7 +51,7 @@ notes:
 - SfMがカメラ位置・疎な点群の推定を、MVSが密な点群の推定を担当。その後、適宜メッシュ化
 - パイプラインは次の図の通り
 
-<a href="https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html" target="_blank"><img class="h-60 place-self-center" src="/hokudai-dgp-research_sfm_mvs-image001.webp"></a>[^hokudai]
+<a href="https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html" target="_blank"><img class="h-40 place-self-center" src="/hokudai-dgp-research_sfm_mvs-image001.webp"></a>[^hokudai]
 
 [^hokudai]: [北海道大学 ディジタル幾何処理工学研究室, "SfM-MVSの高品質化".](https://www.ist.hokudai.ac.jp/labo/dgp/research/sfm_mvs/research_sfm_mvs.html.)
 
@@ -159,8 +159,12 @@ references:
 
 <p/>
 
+<div class="text-xs">
+
 |  | Pros | Cons |
 | --- | --- | --- |
 | フォトグラメトリ | <ul><li>マットな質感を忠実に表現</li><li>幾何学的な精度が高い</li></ul> | <ul><li>透明・鏡面が苦手</li><li>手動最適化が重い</li></ul> |
 | NeRF | <ul><li>新規視点補間と高周波テクスチャに強い</li></ul> | <ul><li>リアルタイムや透明表現が難しい</li><li>後工程が複雑</li></ul> |
 | 3D Gaussian Splatting | <ul><li>透明や反射を上手に表現</li><li>葉のような細かい質感の再現に有利</li><li>リアルタイム描画に強い</li><li>自動化が容易</li></ul> | <ul><li>マット材質や未撮影視点に弱い</li><li>幾何学的な精度は低い</li></ul> |
+
+</div>
