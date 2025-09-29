@@ -2,7 +2,9 @@
 
 スマートフォンに[Scaniverse](https://scaniverse.com/)をインストールし、実際に小物をスキャンしてみましょう。
 
-<a href="https://www.youtube.com/watch?v=8tyxiiu5EC8" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/8tyxiiu5EC8/maxresdefault.jpg"></a>
+<img class="h-80 place-self-center" src="https://img.youtube.com/vi/8tyxiiu5EC8/maxresdefault.jpg">[^sawara]
+
+[^sawara]: [Scaniverse (筆者デモ)](https://www.youtube.com/watch?v=8tyxiiu5EC8)
 
 ---
 
@@ -10,17 +12,21 @@
 
 Scaniverseで作成したスプラットは、PLY/SPZとしてエクスポートすることができます。
 
-<a href="https://www.youtube.com/watch?v=cMenWEiXUdw" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/cMenWEiXUdw/maxresdefault.jpg"></a>
+<img class="h-80 place-self-center" src="https://img.youtube.com/vi/cMenWEiXUdw/maxresdefault.jpg">[^sawara]
+
+[^sawara]: [Scaniverse (筆者デモ)](https://www.youtube.com/watch?v=cMenWEiXUdw)
 
 ---
 
 ## 作成したスプラットを共有してみよう
 
-PLYファイルなどの点群データは、SuperSplat上で公開することができます。「リスト」にチェックを入れるまではリンクを知っている人しか見られません。
+PLYファイルなどの点群データは、SuperSplat上で公開できます。
 
-<a href="https://www.youtube.com/watch?v=Qzc6cUJFCZ8" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/Qzc6cUJFCZ8/maxresdefault.jpg"></a>
+「リスト」にチェックを入れるまではリンクを知っている人しか見られません。自分のスプラットは[Manage](https://superspl.at/manage)から確認できます。
 
-なお、保存・公開したスプラットの一覧は[Manage](https://superspl.at/manage)から確認できます（PlayCanvasプロジェクトとはページが異なるため注意）
+<img class="h-60 place-self-center" src="https://img.youtube.com/vi/Qzc6cUJFCZ8/maxresdefault.jpg">[^sawara]
+
+[^sawara]: [SuperSplat (筆者デモ)](https://www.youtube.com/watch?v=Qzc6cUJFCZ8)
 
 ---
 layout: two-cols-header
@@ -137,11 +143,13 @@ references:
 
 ## postshot のみでスプラットを作る
 
-動画や複数の画像をドラッグ&ドロップすることで、簡単に3Dシーンを再構成することができます。
+動画や複数の画像をドラッグ&ドロップすることで、簡単に3Dシーンの再構成ができます。
 
 ただし、無料プランではExportが制限されています。
 
-<a href="https://www.youtube.com/watch?v=4UCbM_U9fXQ" target="_blank"><img class="h-80 place-self-center" src="https://img.youtube.com/vi/4UCbM_U9fXQ/maxresdefault.jpg"></a>
+<img class="h-60 place-self-center" src="https://img.youtube.com/vi/4UCbM_U9fXQ/maxresdefault.jpg">[^sawara]
+
+[^sawara]: [postshot (筆者デモ)](https://www.youtube.com/watch?v=4UCbM_U9fXQ)
 
 ---
 references:
@@ -156,7 +164,9 @@ references:
 
 RealityScan 2.0にはGaussian Splattingの機能はありませんが、COLMAP形式に書き出すことでスプラット作成の準備に活用できます。それによって、LiDARなどで取得した安定したデータを初期状態として利用できます。
 
-<a href="https://www.youtube.com/watch?v=44GFmICpvb4" target="_blank"><img class="h-80 place-self-center" src="https://img.youtube.com/vi/44GFmICpvb4/maxresdefault.jpg"></a>
+<img class="h-60 place-self-center" src="https://img.youtube.com/vi/44GFmICpvb4/maxresdefault.jpg">[^sawara]
+
+[^sawara]: [RealityScan & postshot (筆者デモ)](https://www.youtube.com/watch?v=44GFmICpvb4)
 
 ---
 layout: two-cols-header
@@ -177,4 +187,6 @@ nerfstudioやpostshotで作成したスプラットを、ブラウザで簡単�
 
 ::right::
 
-<a href="https://www.youtube.com/watch?v=Q0FQkWU8aoE" target="_blank"><img class="place-self-center" src="https://img.youtube.com/vi/Q0FQkWU8aoE/maxresdefault.jpg"></a>
+<img class="place-self-center" src="https://img.youtube.com/vi/Q0FQkWU8aoE/maxresdefault.jpg">
+
+[1]: [PlayCanvas ModelViewer (筆者デモ)](https://www.youtube.com/watch?v=Q0FQkWU8aoE)

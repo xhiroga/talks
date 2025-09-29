@@ -65,38 +65,59 @@ Gaussian Splatting で作成したスプラットは、次のようなプラッ�
 - Scaniverse: アプリ内でスプラットの作成から公開・検索まで一貫して可能
 
 ---
+references:
+- [フォトグラメトリと3DGSを集めたワールド「Tokogrammetry Museum」 | ツバメヤロク](https://tsuba-roku.com/entry/2025/09/20/092718)
+---
 
 ## Tokogrammetry Museum by Tokoyoshi @ VRChat
 
-[フォトグラメトリと3DGSを集めたワールド「Tokogrammetry Museum」 | ツバメヤロク](https://tsuba-roku.com/entry/2025/09/20/092718)が詳しいです。
+全国の公園などをフォトグラメトリと3DGSで再構成。それぞれの質感の違いが活かされています。
 
-<a href="https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-tokogrammetry.png"></a>
+<a href="https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info" target="_blank"><img class="h-80 place-self-center" src="/VRChat-tokogrammetry.png"></a>[^Tokoyoshi]
+
+[^Tokoyoshi]: [Tokoyoshi, "Tokogrammetry Museum"](https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info)
 
 ---
 
 ## Spatialography by VoxelKei @ VRChat
 
-<a href="https://vrchat.com/home/world/wrld_0ab57861-abb2-4802-8783-4ae089ea268b" target="_blank"><img class="h-100 place-self-center" src="/VRChat-spatialography.png"></a>
+絵画の中に入り込むなど、表現を探求しています。
+
+<a href="https://vrchat.com/home/world/wrld_0ab57861-abb2-4802-8783-4ae089ea268b" target="_blank"><img class="h-80 place-self-center" src="/VRChat-spatialography.png"></a>[^VoxelKei]
+
+[^VoxelKei]: [VoxelKei, "Spatialography"](https://vrchat.com/home/world/wrld_10ffd05e-2023-4fe8-a4b4-70c27b00e489/info)
 
 ---
 
 ## Yonago Castle by lilea @ VRChat
 
-<a href="https://vrchat.com/home/world/wrld_f3bf6f63-5eff-4290-b73c-fe14447539dd/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-yonago.png"></a>
+鳥取県米子城をVRChatで体験できます。ちなみにこれとは別に、米子市公式のメタバースも存在しています。
+
+<a href="https://vrchat.com/home/world/wrld_f3bf6f63-5eff-4290-b73c-fe14447539dd/info" target="_blank"><img class="h-80 place-self-center" src="/VRChat-yonago.png"></a>[^lilea]
+
+[^lilea]: [lilea, "Yonago Castle"](https://vrchat.com/home/world/wrld_f3bf6f63-5eff-4290-b73c-fe14447539dd/info)
 
 ---
 
-<a href="https://www.youtube.com/watch?v=1KUCdk4yRpk" target="_blank"><img class="h-120 place-self-center" src="https://img.youtube.com/vi/1KUCdk4yRpk/maxresdefault.jpg"></a>
+<a href="https://www.youtube.com/watch?v=1KUCdk4yRpk" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/1KUCdk4yRpk/maxresdefault.jpg"></a>[^sawara]
+
+[^sawara]: [Yonago Castle created by 龍 lileaを筆者がデモ](https://www.youtube.com/watch?v=1KUCdk4yRpk)
 
 ---
 
 ## KinosakiOnsen 城崎温泉 by lilea @ Arrival.Space
 
-<a href="https://arrival.space/kinosaki-onsen" target="_blank"><img class="h-100 place-self-center" src="/arrival_space-kinosaki-onsen.png"></a>
+Arrival.Spaceで城崎温泉を観光できます。
+
+<a href="https://arrival.space/kinosaki-onsen" target="_blank"><img class="h-80 place-self-center" src="/arrival_space-kinosaki-onsen.png"></a>[^lilea]
+
+[^lilea]: [lilea, "KinosakiOnsen 城崎温泉"](https://arrival.space/kinosaki-)
 
 ---
 
-<a href="https://www.youtube.com/watch?v=9aKryeDywx4" target="_blank"><img class="h-120 place-self-center" src="https://img.youtube.com/vi/9aKryeDywx4/maxresdefault.jpg"></a>
+<a href="https://www.youtube.com/watch?v=9aKryeDywx4" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/9aKryeDywx4/maxresdefault.jpg"></a>[^sawara]
+
+[^sawara]: [KinosakiOnsen 城崎温泉 created by 龍 lileaを筆者がデモ](https://www.youtube.com/watch?v=9aKryeDywx4)
 
 ---
 layout: two-cols-header
@@ -120,6 +141,8 @@ Meta QuestとSteamVRで体験可能なボリュメトリックビデオ（自由
 
 ---
 
-## おまけ: ショッパーズ長浜店 by Tokoyoshi 
+## おまけ: ンョ゛ハー ゛（ショッパーズ長浜店） by Tokoyoshi 
 
-<a href="https://vrchat.com/home/world/wrld_b49c6ee2-c2e3-4dc6-bf09-3aaea66208b1/info" target="_blank"><img class="h-100 place-self-center" src="/VRChat-shoppers.png"></a>
+<a href="https://vrchat.com/home/world/wrld_b49c6ee2-c2e3-4dc6-bf09-3aaea66208b1/info" target="_blank"><img class="h-80 place-self-center" src="/VRChat-shoppers.png"></a>[^Tokoyoshi]
+
+[^Tokoyoshi]: [Tokoyoshi, "ンョ゛ハー ゛（ショッパーズ長浜店）"](https://vrchat.com/home/world/wrld_b49c6ee2-c2e3-4dc6-bf09-3aaea66208b1/info)
