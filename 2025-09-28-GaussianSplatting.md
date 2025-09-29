@@ -1,5 +1,5 @@
 # Gaussian Splatting ハンズオン
-2025-09-28 小笠原寛明 ([@xhiroga](https://twitter.com/xhiroga))
+2025-09-28 さわら (小笠原寛明, [@xhiroga](https://twitter.com/xhiroga))
 
 ---
 src: ./pages/intro-hiroga.md
@@ -57,4 +57,13 @@ layout: center
 
 ---
 src: ./pages/applications-gs.md
+---
+---
+
+## まとめ
+
+Gaussian Splattingの仕組みとスプラットの作成方法、応用事例を見ました。
+
+気になる点などがあれば、ぜひお気軽に [さわら](https://sawara.dev) までご連絡ください！
+
 ---
