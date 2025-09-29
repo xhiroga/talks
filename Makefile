@@ -10,7 +10,9 @@ dev:
 	pnpm dev "$$FILE"
 
 fmt:
-	codex --search 
+	@FILE=$$(find . -maxdepth 1 -type f -name '*.md' -print | sed 's|^\./||' | sort | fzf); \
+	[ -n "$$FILE" ] || { echo "No markdown selected." >&2; exit 1; }; \
+	codex --search "AGENTS.mdに従って\"$$FILE\"と依存先のMarkdownファイルを校閲してください"
 
 pdf:
 	@FILE=$$(find . -maxdepth 1 -type f -name '*.md' -print | sed 's|^\./||' | sort | fzf --prompt='pnpm export> '); \

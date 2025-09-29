@@ -65,5 +65,3 @@ src: ./pages/applications-gs.md
 Gaussian Splattingの仕組みとスプラットの作成方法、応用事例を見ました。
 
 気になる点などがあれば、ぜひお気軽に [さわら](https://sawara.dev) までご連絡ください！
-
----
