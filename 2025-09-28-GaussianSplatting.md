@@ -2,6 +2,9 @@
 2025-09-28 小笠原寛明 ([@xhiroga](https://twitter.com/xhiroga))
 
 ---
+src: ./pages/intro-hiroga.md
+---
+---
 
 ## 本ハンズオンの持ち物
 
