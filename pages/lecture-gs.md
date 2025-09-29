@@ -114,6 +114,9 @@ references:
 推定したデータは「スプラット」と呼ぶことが多い。
 
 ---
+notes:
+- potreeのデモがsplat表示であると思われる根拠は[こちら](https://www.cg.tuwien.ac.at/research/publications/2016/SCHUETZ-2016-POT/SCHUETZ-2016-POT-thesis.pdf)
+---
 
 ## Point Splatting を眺めて理解する
 

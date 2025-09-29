@@ -5,6 +5,24 @@
 <a href="https://www.youtube.com/watch?v=8tyxiiu5EC8" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/8tyxiiu5EC8/maxresdefault.jpg"></a>
 
 ---
+
+## スプラットをエクスポートしてみよう
+
+Scaniverseで作成したスプラットは、PLY/SPZとしてエクスポートすることができます。
+
+<a href="https://www.youtube.com/watch?v=cMenWEiXUdw" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/cMenWEiXUdw/maxresdefault.jpg"></a>
+
+---
+
+## 作成したスプラットを共有してみよう
+
+PLYファイルなどの点群データは、SuperSplat上で公開することができます。「リスト」にチェックを入れるまではリンクを知っている人しか見られません。
+
+<a href="https://www.youtube.com/watch?v=Qzc6cUJFCZ8" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/Qzc6cUJFCZ8/maxresdefault.jpg"></a>
+
+なお、保存・公開したスプラットの一覧は[Manage](https://superspl.at/manage)から確認できます（PlayCanvasプロジェクトとはページが異なるため注意）
+
+---
 layout: two-cols-header
 ---
 
@@ -24,29 +42,34 @@ layout: two-cols-header
 
 ### 商用ソフトウェア
 
- - **postshot**: Windows向けソフト
+ - **postshot**: Windows向け3DGS対応ソフト。無料で試用できるが、PLYなどの書き出しは有料。
  - **Scaniverce**: Pokemon GO でおなじみ Niantic が手がける3Dスキャニングアプリ。Photogrammetry / 3D Gaussian Splatting の両方に対応
  - **LumaAI**: iOS/Androidアプリで撮影した素材をクラウド処理し、約20〜30分で3DGSを生成。Gaussian Splat向けのPLYやOBJ/USDZなどへ書き出せる
 
 ---
 references:
 - https://chatgpt.com/c/68d9c3b5-af40-8329-a987-e4a1ac69f7c4
+- https://zenn.dev/tmb0703/articles/e2e7a48bc5bb2c
 ---
 
 ## Gaussian Splatting の出力フォーマット
 
-<p/>
+2025年9月現在、Gaussian Splatting専用の業界標準フォーマットはありません。
 
-| | 主な特徴 | ファイルサイズ / 品質 | 主な用途・対応ツール |
+| | 主な特徴 | サイズ / 品質 | 主な用途・対応ツール |
 | --- | --- | --- | --- |
-| PLY | 汎用的なポイントクラウド/3DGS用の標準バイナリ。位置・法線・SH係数などをフル精度で保持 | 非圧縮で最大数GB規模。品質はロスレス | nerfstudioやCOLMAPなど多くの再構成パイプラインで入出力可能。編集やアーカイブ向け |
-| SOG | PlayCanvasが定義する3DGS配信用フォーマット。量子化済みデータをWebPテクスチャ群＋`meta.json`で管理し、単一ZIPにも束ねられる | PLY比でおおよそ15〜20倍小さく、視覚品質はランタイム向けに最適化されたロッシー | PlayCanvas Model Viewerや`splat-transform`でのコンバートに対応。Web配信・CDN配信向け |
-| SPZ | Nianticが公開したgzipベースのバイナリ。位置は24bit固定小数、回転は最小3成分量子化などで高圧縮 | PLY比で約10倍小さい。視覚品質はモバイル/クラウド向けに実用レベル | Scaniverse、Niantic Studio、各種SPZ対応ビューワ（例: GSplat Viewer）で利用。軽量配布・モバイル閲覧向け |
+| PLY | 本来は点群用 | 非圧縮 | nerfstudioなどで標準的 |
+| SPLAT | Inriaチームの公式論文実装が由来 | PLYより軽量かつロスレス | GraphDeco Viewerなど |
+| NPZ | Compact 3DGSが出力するNumPy圧縮 | PLY比より圧縮率高、準ロスレス | Compact-3DGSなど |
+| SOG | WebPテクスチャ＋`meta.json`構成 | PLY比15〜20倍小さいロッシー圧縮 | PlayCanvasなど |
+| SPZ | Niantic提案のgzipバイナリ | PLY比約10倍小さい実用品質 | Scaniverseなど |
 
 ---
 references:
 - https://developer.playcanvas.com/ja/user-manual/gaussian-splatting/
 - https://developer.playcanvas.com/ja/user-manual/gaussian-splatting/creating/recommended-tools/
+- https://evergine.com/gaussian-splatting-add-on/
+- https://github.com/maincold2/Compact-3DGS
 ---
 
 ## Gaussian Splatting の制作ワークフロー
@@ -134,14 +157,6 @@ references:
 RealityScan 2.0にはGaussian Splattingの機能はありませんが、COLMAP形式に書き出すことでスプラット作成の準備に活用できます。それによって、LiDARなどで取得した安定したデータを初期状態として利用できます。
 
 <a href="https://www.youtube.com/watch?v=44GFmICpvb4" target="_blank"><img class="h-80 place-self-center" src="https://img.youtube.com/vi/44GFmICpvb4/maxresdefault.jpg"></a>
-
----
-
-## Scaniverce でスプラットを作る
-
-Scaniverseで作成したスプラットは、SPZ/PLYとしてエクスポートすることができます。
-
-<a href="https://www.youtube.com/watch?v=cMenWEiXUdw" target="_blank"><img class="h-100 place-self-center" src="https://img.youtube.com/vi/cMenWEiXUdw/maxresdefault.jpg"></a>
 
 ---
 layout: two-cols-header

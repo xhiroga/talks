@@ -30,7 +30,7 @@
 
 GPT-4については......[^openai]
 
-[^openai]: OpenAI, “GPT-4 Technical Report,” arXiv. [Online]. Available: https://arxiv.org/abs/2303.08774.
+[^openai]: [OpenAI, “GPT-4 Technical Report,”](https://arxiv.org/abs/2303.08774)
 
 ---
 ```
