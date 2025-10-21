@@ -35,6 +35,23 @@ GPT-4については......[^openai]
 ---
 ```
 
+### 列レイアウトと引用
+
+slidevの仕様上、layoutでtwo-colなどを指定すると、それがフッターよりも下に来てしまう。それを避けたい場合、<div>で2列レイアウトを組む。
+
+#### Good
+
+```slidev
+VSRモデルの比較。多くのモデルで誤り率が25%以上であること、大量データが性能改善に効くこと、にも関わらずLLMを用いたモデルの性能（Ours = VALLR）が高いことが分かる。[^VALLR]
+
+<div class="grid grid-cols-2">
+  <img class="h-80 place-self-center" src="/vsr-llm/vallr-table2-1.png" alt="VALLR Table 2 (Part 1)">
+  <img class="h-80 place-self-center" src="/vsr-llm/vallr-table2-2.png" alt="VALLR Table 2 (Part 2)">
+</div>
+
+[^VALLR]: [M. Thomas et al., “VALLR: Visual ASR Language Model for Lip Reading,” Mar. 27, 2025, arXiv: arXiv:2503.21408. doi: 10.48550/arXiv.2503.21408.](https://arxiv.org/abs/2503.21408v1)
+```
+
 ## Format
 
 ### GIF画像
