@@ -1,6 +1,12 @@
 # Gaussian Splatting ハンズオン
 2025-09-28 さわら (小笠原寛明, [@xhiroga](https://twitter.com/xhiroga))
 
+<span class="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400">
+  この資料を
+  <a class="text-slate-300 underline decoration-dotted" href="https://github.com/xhiroga/talks/blob/main/2025-09-28-GaussianSplatting.md" target="_blank"><img src="/github-mark.svg" alt="GitHub mark" class="inline-block h-4 w-4" /> GitHubで公開</a>
+  しています。
+</span>
+
 ---
 src: ./pages/intro-hiroga.md
 ---

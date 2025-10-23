@@ -1,6 +1,12 @@
 # Gaussian Splatting Hands-on
 September 28, 2025 Sawara (Hiroaki Ogasawara, [@xhiroga](https://twitter.com/xhiroga))
 
+<span class="absolute bottom-6 left-0 right-0 text-center text-xs text-slate-400">
+  This deck is
+  <a class="text-slate-300 underline decoration-dotted" href="https://github.com/xhiroga/talks/blob/main/2025-09-28-GaussianSplatting.en.md" target="_blank"><img src="/github-mark.svg" alt="GitHub mark" class="inline-block h-4 w-4" /> available on GitHub</a>.
+</span>
+
+
 ---
 src: ./pages/intro-hiroga.en.md
 ---
