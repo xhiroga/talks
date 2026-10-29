@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@slidev/cli':
         specifier: ^52.2.4
-        version: 52.2.4(@babel/parser@7.28.4)(@nuxt/kit@3.19.2)(@types/markdown-it@14.1.2)(@types/node@22.18.6)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(playwright-chromium@1.55.0)(postcss@8.5.6)
+        version: 52.2.4(@babel/parser@7.28.4)(@nuxt/kit@3.19.2)(@types/markdown-it@14.1.2)(@types/node@22.18.6)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(playwright-chromium@1.55.0)(postcss@8.5.32)
       '@slidev/theme-default':
         specifier: ^0.25.0
         version: 0.25.0
@@ -2007,8 +2007,8 @@ packages:
   muggle-string@0.4.1:
     resolution: {integrity: sha512-VNTrAak/KhO2i8dqqnqnAHOa3cYBwXEZe9h+D5h/1ZqFSTEFHdM65lR7RoIqq3tBBYavsOXV84NoHXZ0AkPyqQ==}
 
-  nanoid@3.3.11:
-    resolution: {integrity: sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==}
+  nanoid@3.3.20:
+    resolution: {integrity: sha512-uKdg2G3GNCKQn9byYOpxbGqrT2fGO5KRt5J/8b3pok8rT6qxGWF6hxMyJiEYtAf+FVyYuD9hRaDqX5uPFYJ4ZQ==}
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
@@ -2142,8 +2142,8 @@ packages:
     resolution: {integrity: sha512-7qASPzhKF2l2KLboRZux8CCTRMdGiV08vWmyKzPz22qZ7ZjQBOeY7rNzNoCLSUiftJ7HUq0GERHmxw/t0dCdMw==}
     engines: {node: '>=4'}
 
-  postcss@8.5.6:
-    resolution: {integrity: sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==}
+  postcss@8.5.32:
+    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
     engines: {node: ^10 || ^12 || >=14}
 
   pptxgenjs@4.0.1:
@@ -2311,6 +2311,10 @@ packages:
 
   source-map-js@1.2.1:
     resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
+    engines: {node: '>=0.10.0'}
+
+  source-map-js@1.2.2:
+    resolution: {integrity: sha512-KGj/8Y43x35aZVDtt+J4mK1hoLGHULMYfSkODJNQjNDC3oW1PqPoxMwo0pLUsWM/UEGzON/NxeHywEfNXNP3Vw==}
     engines: {node: '>=0.10.0'}
 
   space-separated-tokens@2.0.2:
@@ -3303,7 +3307,7 @@ snapshots:
 
   '@sindresorhus/is@5.6.0': {}
 
-  '@slidev/cli@52.2.4(@babel/parser@7.28.4)(@nuxt/kit@3.19.2)(@types/markdown-it@14.1.2)(@types/node@22.18.6)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(playwright-chromium@1.55.0)(postcss@8.5.6)':
+  '@slidev/cli@52.2.4(@babel/parser@7.28.4)(@nuxt/kit@3.19.2)(@types/markdown-it@14.1.2)(@types/node@22.18.6)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(playwright-chromium@1.55.0)(postcss@8.5.32)':
     dependencies:
       '@antfu/ni': 25.0.0
       '@antfu/utils': 9.2.1
@@ -3314,9 +3318,9 @@ snapshots:
       '@shikijs/markdown-it': 3.13.0(markdown-it-async@2.2.0)
       '@shikijs/twoslash': 3.13.0(typescript@5.9.2)
       '@shikijs/vitepress-twoslash': 3.13.0(@nuxt/kit@3.19.2)(typescript@5.9.2)
-      '@slidev/client': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
-      '@slidev/parser': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
-      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/client': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/parser': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       '@unocss/extractor-mdc': 66.5.1
       '@unocss/reset': 66.5.1
       '@vitejs/plugin-vue': 6.0.1(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))(vue@3.5.21(typescript@5.9.2))
@@ -3347,7 +3351,7 @@ snapshots:
       pdf-lib: 1.17.1
       picomatch: 4.0.3
       plantuml-encoder: 1.4.0
-      postcss-nested: 7.0.2(postcss@8.5.6)
+      postcss-nested: 7.0.2(postcss@8.5.32)
       pptxgenjs: 4.0.1
       prompts: 2.4.2
       public-ip: 7.0.1
@@ -3360,7 +3364,7 @@ snapshots:
       source-map-js: 1.2.1
       typescript: 5.9.2
       unhead: 2.0.17
-      unocss: 66.5.1(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      unocss: 66.5.1(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       unplugin-icons: 22.3.0(@vue/compiler-sfc@3.5.21)
       unplugin-vue-components: 28.8.0(@babel/parser@7.28.4)(@nuxt/kit@3.19.2)(vue@3.5.21(typescript@5.9.2))
       unplugin-vue-markdown: 29.1.0(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
@@ -3404,7 +3408,7 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/client@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
+  '@slidev/client@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
     dependencies:
       '@antfu/utils': 9.2.1
       '@iconify-json/carbon': 1.2.13
@@ -3413,9 +3417,9 @@ snapshots:
       '@shikijs/engine-javascript': 3.13.0
       '@shikijs/monaco': 3.13.0
       '@shikijs/vitepress-twoslash': 3.13.0(@nuxt/kit@3.19.2)(typescript@5.9.2)
-      '@slidev/parser': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/parser': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       '@slidev/rough-notation': 0.1.0
-      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       '@typescript/ata': 0.9.8(typescript@5.9.2)
       '@unhead/vue': 2.0.17(vue@3.5.21(typescript@5.9.2))
       '@unocss/reset': 66.5.1
@@ -3437,7 +3441,7 @@ snapshots:
       shiki: 3.13.0
       shiki-magic-move: 1.1.0(shiki@3.13.0)(vue@3.5.21(typescript@5.9.2))
       typescript: 5.9.2
-      unocss: 66.5.1(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      unocss: 66.5.1(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       vue: 3.5.21(typescript@5.9.2)
       vue-router: 4.5.1(vue@3.5.21(typescript@5.9.2))
       yaml: 2.8.1
@@ -3458,10 +3462,10 @@ snapshots:
       - vue-template-compiler
       - vue-template-es2015-compiler
 
-  '@slidev/parser@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
+  '@slidev/parser@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
     dependencies:
       '@antfu/utils': 9.2.1
-      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      '@slidev/types': 52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       yaml: 2.8.1
     transitivePeerDependencies:
       - '@nuxt/kit'
@@ -3496,7 +3500,7 @@ snapshots:
 
   '@slidev/types@0.47.5': {}
 
-  '@slidev/types@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.6)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
+  '@slidev/types@52.2.4(@nuxt/kit@3.19.2)(@vue/compiler-sfc@3.5.21)(markdown-it-async@2.2.0)(postcss@8.5.32)(typescript@5.9.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))':
     dependencies:
       '@antfu/utils': 9.2.1
       '@shikijs/markdown-it': 3.13.0(markdown-it-async@2.2.0)
@@ -3506,7 +3510,7 @@ snapshots:
       mermaid: 11.12.0
       monaco-editor: 0.53.0
       shiki: 3.13.0
-      unocss: 66.5.1(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
+      unocss: 66.5.1(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       unplugin-icons: 22.3.0(@vue/compiler-sfc@3.5.21)
       unplugin-vue-markdown: 29.1.0(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       vite-plugin-inspect: 11.3.3(@nuxt/kit@3.19.2)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
@@ -3758,13 +3762,13 @@ snapshots:
       sirv: 3.0.2
       vue-flow-layout: 0.2.0
 
-  '@unocss/postcss@66.5.1(postcss@8.5.6)':
+  '@unocss/postcss@66.5.1(postcss@8.5.32)':
     dependencies:
       '@unocss/config': 66.5.1
       '@unocss/core': 66.5.1
       '@unocss/rule-utils': 66.5.1
       css-tree: 3.1.0
-      postcss: 8.5.6
+      postcss: 8.5.32
       tinyglobby: 0.2.15
 
   '@unocss/preset-attributify@66.5.1':
@@ -3938,7 +3942,7 @@ snapshots:
       '@vue/shared': 3.5.21
       estree-walker: 2.0.2
       magic-string: 0.30.19
-      postcss: 8.5.6
+      postcss: 8.5.32
       source-map-js: 1.2.1
 
   '@vue/compiler-ssr@3.5.21':
@@ -5206,7 +5210,7 @@ snapshots:
 
   muggle-string@0.4.1: {}
 
-  nanoid@3.3.11: {}
+  nanoid@3.3.20: {}
 
   nanotar@0.2.0: {}
 
@@ -5323,9 +5327,9 @@ snapshots:
       style-value-types: 5.1.2
       tslib: 2.4.0
 
-  postcss-nested@7.0.2(postcss@8.5.6):
+  postcss-nested@7.0.2(postcss@8.5.32):
     dependencies:
-      postcss: 8.5.6
+      postcss: 8.5.32
       postcss-selector-parser: 7.1.6
 
   postcss-selector-parser@7.1.6:
@@ -5333,11 +5337,11 @@ snapshots:
       cssesc: 3.0.0
       util-deprecate: 1.0.2
 
-  postcss@8.5.6:
+  postcss@8.5.32:
     dependencies:
-      nanoid: 3.3.11
+      nanoid: 3.3.20
       picocolors: 1.1.1
-      source-map-js: 1.2.1
+      source-map-js: 1.2.2
 
   pptxgenjs@4.0.1:
     dependencies:
@@ -5517,6 +5521,8 @@ snapshots:
 
   source-map-js@1.2.1: {}
 
+  source-map-js@1.2.2: {}
+
   space-separated-tokens@2.0.2: {}
 
   sprintf-js@1.0.3: {}
@@ -5689,12 +5695,12 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unocss@66.5.1(postcss@8.5.6)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1)):
+  unocss@66.5.1(postcss@8.5.32)(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1)):
     dependencies:
       '@unocss/astro': 66.5.1(vite@7.3.7(@types/node@22.18.6)(jiti@2.6.0)(yaml@2.8.1))
       '@unocss/cli': 66.5.1
       '@unocss/core': 66.5.1
-      '@unocss/postcss': 66.5.1(postcss@8.5.6)
+      '@unocss/postcss': 66.5.1(postcss@8.5.32)
       '@unocss/preset-attributify': 66.5.1
       '@unocss/preset-icons': 66.5.1
       '@unocss/preset-mini': 66.5.1
@@ -5877,7 +5883,7 @@ snapshots:
       esbuild: 0.28.2
       fdir: 6.5.0(picomatch@4.0.3)
       picomatch: 4.0.3
-      postcss: 8.5.6
+      postcss: 8.5.32
       rollup: 4.52.0
       tinyglobby: 0.2.15
     optionalDependencies:
